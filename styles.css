@@ -16,6 +16,7 @@
       --development-color: #fff;
       --misc-color: #F5F0EB;
       --footer-color: #FFF7EB;
+      --highlighter-color: #DBF8CB;
     }
     
     .section {
@@ -31,11 +32,9 @@
         min-height: 10vh;
         padding:50px 0 0 0;
         justify-content: center;
-
     }
 
     .nav-section{
-
         display: flex;
         justify-content: center;
         align-items: center;  
@@ -102,20 +101,31 @@
       margin-bottom: 2rem;
       color: #666;
     }
-    
-    nav a {
-      font-family: 'Inria Serif', serif;
-      font-size: 1.5rem;
-      text-decoration: none;
-      color: #333;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      transition: background-color 0.2s;
+      
+      nav a {
+        font-family: 'Inria Serif', serif;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #333;
+        position: relative;
+        display: inline-block;
+        z-index: 0;
+      }
+      
+      nav a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 25%;
+        background: var(--highlighter-color);
+        border-radius: 0.25em;
+        z-index: -1;
     }
-    
-    nav a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-    }
+      
+      
     
     h1 {
       font-family: 'Inria Serif', serif;
