@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+      --hero-color: #FDF9F2;
+      --about-color: #F5F0EB;
+      --research-color: #f5f0eb;
+      --development-color: #fff;
+      --misc-color: #F5F0EB;
+      --footer-color: #FFF7EB;
+    }
+    
+    .section {
+      width: 100%;
+      padding: 50px 0;
+    }
+    
+    .hero-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        background-color: var(--hero-color);
+        min-height: 10vh;
+        padding:50px 0 0 0;
+        justify-content: center;
+
+    }
+
+    .nav-section{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        background-color: var(--hero-color);
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .about-section {
+      background-color: var(--about-color);
+    }
+    
+    .research-section {
+      background-color: var(--research-color);
+    }
+    
+    .development-section {
+      background-color: var(--development-color);
+    }
+    
+    .misc-section {
+      background-color: var(--misc-color);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      padding: 0 2rem;
+      max-width: 1200px;
+      margin: 0 auto 0 auto;
+    }
+    
+    nav {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .hero-content {
+      flex: 1;
+    }
+    
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    
+    .subtitle {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #666;
+    }
+    
+    nav a {
+      font-family: 'Inria Serif', serif;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #333;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s;
+    }
+    
+    nav a:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      font-family: 'Inria Serif', serif;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    
+    h2 {
+      font-family: 'Inria Serif', serif;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+      
+      h1 {
+        font-size: 3rem;
+      }
+    }
