@@ -219,9 +219,13 @@
                 // Handle regular clickable text {{text|url|color}}
                 const clickableRegex = /\{\{([^|]+?)\|([^|]+?)\|(green|orange)\}\}([.,;:!?])?/g;
                 text = text.replace(clickableRegex, (match, linkText, url, color, punctuation = "") => {
+                    // Check if it's an internal anchor link
+                    if (url.startsWith('#')) {
+                        return `<a href="${url.trim()}" class="clicky clicky--${color.trim()} internal-link">${linkText.trim()}${punctuation}</a>`;
+                    } else {
                         return `<a href="${url.trim()}" class="clicky clicky--${color.trim()}" target="_blank">${linkText.trim()}${punctuation}</a>`;
-                    });
-
+                    }
+                });
                 
                 // Handle research links [paper] [code] [presentation]
                 const researchRegex = /\[([^\]]+)\]/g;
@@ -266,7 +270,29 @@
             });
         }
         
-        document.addEventListener('DOMContentLoaded', convertClickableText);
+        // Add smooth scrolling for internal links without changing URL
+        function handleInternalLinks() {
+            document.addEventListener('click', function(e) {
+                if (e.target.matches('a.internal-link, a.internal-link *')) {
+                    e.preventDefault();
+                    const link = e.target.closest('a.internal-link');
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            convertClickableText();
+            handleInternalLinks();
+        });
     </script>
 </body>
 </html>
