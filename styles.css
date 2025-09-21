@@ -190,33 +190,21 @@ h2::before {
     color: inherit;
     cursor: pointer;
     z-index: 0;
-}
-
-.clicky::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 35%;
-    border-radius: 0.25em;
-    z-index: -1;
+    background: linear-gradient(to bottom, transparent 35%, var(--clickable-color-orange) 35%, var(--clickable-color-orange) 65%, transparent 65%);
+    padding: 0 0.1em;
     transition: all 0.2s ease;
+    border-radius: 0.25em;
 }
 
-.clicky--green::before {
-    background: var(--highlighter-color-green);
-    z-index: -1;
+.clicky--green {
+    background: linear-gradient(to bottom, transparent 35%, var(--highlighter-color-green) 35%, var(--highlighter-color-green) 65%, transparent 65%);
 }
 
-.clicky--orange::before {
-    background: var(--clickable-color-orange);
-    z-index: -1;
+.clicky--orange {
+    background: linear-gradient(to bottom, transparent 35%, var(--clickable-color-orange) 35%, var(--clickable-color-orange) 65%, transparent 65%);
 }
 
-.clicky:hover::before {
-    height: 35%;
+.clicky:hover {
     opacity: 0.8;
 }
 
@@ -300,7 +288,18 @@ b, strong {
     top: 0;
     font-size: 1.2em;
 }
+.back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--development-color);
+}
 
+.back p {
+    margin: 0;
+    text-align: center;
+}
 html {
     scroll-behavior: smooth;
 }
