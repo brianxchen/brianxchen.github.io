@@ -383,6 +383,19 @@ function initializeCabinet() {
             button.textContent = 'another!';
         });
     }
+    setTimeout(() => {
+        const aboutButton = document.querySelector('.cabinet-about .clicky--orange');
+        const aboutContent = document.getElementById('cabinet-about-content');
+        
+        if (aboutButton && aboutContent) {
+            // don't want hover effect on about button
+            aboutButton.removeAttribute('href');
+            aboutButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                aboutContent.classList.toggle('hidden');
+            });
+        }
+    }, 100);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
