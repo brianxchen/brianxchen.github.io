@@ -73,7 +73,7 @@ function convertClickableText() {
             if (cleanUrl.startsWith('#')) {
                 return `<a href="${cleanUrl}" class="clicky clicky--${cleanColor} internal-link">${cleanLinkText}</a>`;
             } else {
-                return `<a href="${cleanUrl}" class="clicky clicky--${cleanColor}" target="_blank">${cleanLinkText}</a>`;
+                return `<a href="${cleanUrl}" class="clicky clicky--${cleanColor}">${cleanLinkText}</a>`;
             }
         });
         
