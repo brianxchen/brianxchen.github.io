@@ -148,63 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function initializeCabinet() {
-    const button = document.getElementById('lucky-button');
-    const contentDiv = document.getElementById('cabinet-content');
-
-    function shuffleArray(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-    }
-
-    shuffleArray(cabinetData);
-    let idx = 0;
-    let cabinetDataLength = cabinetData.length;
-    if (button && contentDiv) {
-        button.addEventListener('click', function() {
-            const randomItem = cabinetData[idx];
-            idx = (idx + 1) % cabinetDataLength;
-            let html = '';
-            if (randomItem.type === 'quote') {
-                html = `
-                    <blockquote>${randomItem.content}</blockquote>
-                    <div class="attribution">— ${randomItem.author}</div>
-                `;
-            } else if (randomItem.type === 'poem') {
-                html = `
-                    ${randomItem.title ? `<div class="poem-title">${randomItem.title}</div>` : ''}
-                    <div class="poem">${randomItem.content}</div>
-                    <div class="attribution">— ${randomItem.author}</div>
-                `;
-            }
-            
-            contentDiv.innerHTML = html;
-            contentDiv.classList.remove('hidden');
-            
-            button.textContent = 'another!';
-        });
-    }
-    setTimeout(() => {
-        const aboutButton = document.querySelector('.cabinet-about .clicky--orange');
-        const aboutContent = document.getElementById('cabinet-about-content');
-        
-        if (aboutButton && aboutContent) {
-            // don't want hover effect on about button
-            aboutButton.removeAttribute('href');
-            aboutButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                aboutContent.classList.toggle('hidden');
-            });
-        }
-    }, 100);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
     convertClickableText();
     handleInternalLinks();
-    initializeCabinet();
 });
